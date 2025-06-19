@@ -1,8 +1,11 @@
 const express = require('express');
+const connectDB = require('./app/config/database');
 const { engine } = require('express-handlebars'); // ✅ Import đúng cách
 const morgan = require('morgan');
 const path = require('path'); // Đảm bảo đã import dòng này
 const app = express();
+// Kết nối đến MongoDB
+connectDB();
 const port = 3000;
 const route = require('./routes/index');
 app.use(express.static(path.join(__dirname, 'public'))); // ✅ Sử dụng middleware để phục vụ file static
